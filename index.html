@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Turn educational YouTube videos into structured study notes." />
+  <title>Video → Notes | AI Study Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <nav class="nav">
+      <div class="brand"><span class="brand-mark">V→N</span><span>Video → Notes</span></div>
+      <a href="https://github.com/dibyadyoti01/dibyadyoti" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">FREE • EDUCATION • AI</div>
+      <h1>Turn a YouTube lecture into<br><em>notes worth studying.</em></h1>
+      <p class="sub">Paste a YouTube link. The system extracts the transcript, identifies the lecture structure, and converts it into concise, hierarchical study notes.</p>
+
+      <form id="noteForm" class="input-card">
+        <label for="videoUrl">YouTube video URL</label>
+        <div class="url-row">
+          <input id="videoUrl" name="videoUrl" type="url" autocomplete="off" placeholder="https://www.youtube.com/watch?v=..." required />
+          <button id="generateBtn" type="submit">Generate notes <span>→</span></button>
+        </div>
+        <div class="hint"><span class="dot"></span> No account required • Designed for lectures, interviews, explainers &amp; UPSC content</div>
+      </form>
+    </section>
+
+    <section id="progress" class="progress hidden" aria-live="polite">
+      <div class="progress-head"><strong id="progressTitle">Analysing video…</strong><span id="progressPct">0%</span></div>
+      <div class="bar"><div id="progressBar"></div></div>
+      <div id="progressDetail" class="progress-detail">Connecting to the notes engine.</div>
+      <div class="steps"><span class="active" data-step="transcript">Transcript</span><span data-step="structure">Structure</span><span data-step="notes">Notes</span><span data-step="review">Review</span></div>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div class="result-toolbar">
+        <div><span class="status">READY</span><span id="resultTitle">Structured notes</span></div>
+        <div class="toolbar-actions"><button id="copyBtn" class="secondary">Copy</button><button id="downloadBtn" class="secondary">Download .md</button></div>
+      </div>
+      <article id="notes" class="notes"></article>
+    </section>
+
+    <section id="error" class="error hidden" role="alert"><strong>Could not generate notes.</strong><p id="errorText"></p></section>
+
+    <footer><span>Built for learning, not for replacing the original lecture.</span><span>AI output should be checked against the source.</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
